@@ -23,5 +23,4 @@ g++ -std=c++17 -O2 -I include -o main.exe main.cpp src/PlacementManager.cpp
 | [CLASS_DIAGRAM.md](./docs/CLASS_DIAGRAM.md) | UML class diagram |
 | [SEQUENCE_DIAGRAMS.md](./docs/SEQUENCE_DIAGRAMS.md) | Sequence diagrams for all modules |
 | [DATA_FLOW.md](./docs/DATA_FLOW.md) | CSV format & data ingestion pipeline |
-| [API_REFERENCE.md](./docs/API_REFERENCE.md) | Complete API reference |
 | [DESIGN_DECISIONS.md](./docs/DESIGN_DECISIONS.md) | Rationale for key design choices |
