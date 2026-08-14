@@ -77,7 +77,7 @@ class PlacementManager
     // Asks user for round choice (1-5); returns Round enum value.
     Round askRound() const;
 
-    // Inserts a record into rounds_[r] in sorted (by ID) order via binary search.
+    // Inserts a record into rounds_[r] in sorted (by ID) order via AVL Tree.
     void insertSorted(Round r, const StudentRecord& rec);
 
     // Reads one CSV file and populates round r data + statistics.
@@ -109,7 +109,7 @@ public:
     PlacementManager();
 
     // ===================================================================
-    // PUBLIC INTERFACE  (identical to original)
+    // PUBLIC INTERFACE 
     // ===================================================================
 
     // --- Data Input ---

@@ -1,7 +1,5 @@
 // ============================================================
 //  StudentRecord.h  —  Unified data model
-//  Replaces Node1, Node2, and all 30+ separate unordered_maps
-//  from the original design.
 // ============================================================
 #pragma once
 
@@ -38,7 +36,6 @@ inline string roundName(int r)
 }
 
 // -------------------------------------------------------
-// Single unified student record — replaces Node1 + Node2.
 // `package` is 0.0f for every round except FINAL_ROUND.
 // -------------------------------------------------------
 struct StudentRecord {
@@ -53,7 +50,6 @@ struct StudentRecord {
     int       year        = 0;
     float     package     = 0.0f;   // Only meaningful for FINAL_ROUND
 
-    // Enable binary search / lower_bound by ID
     bool operator<(const StudentRecord& o) const { return id < o.id; }
 };
 

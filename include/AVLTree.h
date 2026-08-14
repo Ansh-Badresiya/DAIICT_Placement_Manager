@@ -1,9 +1,8 @@
 // ============================================================
 //  AVLTree.h  —  Template AVL Tree (Array-Indexed Nodes)
 //
-//  Approach 2 + 3 Combined:
-//    - Template so it works for any type T
-//    - Nodes stored in a flat vector (no heap alloc per node)
+//  - Template so it works for any type T
+//  - Nodes stored in a flat vector (no heap alloc per node)
 //      so in-order traversal is cache-friendly
 //
 //  Requirements:

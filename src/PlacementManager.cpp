@@ -1,14 +1,11 @@
 // ============================================================
 //  PlacementManager.cpp  —  Full implementation
 //
-//  KEY IMPROVEMENTS vs original:
-//  1. Single StudentRecord struct (was: Node1 + Node2)
+//  KEY POINTS:
+//  1. Single StudentRecord struct
 //  2. std::vector per round, binary-search insertion  O(log N)
-//     (was: sorted linked list, O(N) per insert → O(N²) bulk)
 //  3. One generic filter() + printTable() + writeCSV()
-//     (was: hundreds of duplicated display/write functions)
 //  4. Index sets for O(1) existence checks
-//     (was: O(N) linked-list scan per query)
 //  5. Proper header/source split — no #include of .cpp
 //  6. computeMedian() takes by VALUE (BUG FIX — original mutated caller's data)
 //  7. Proper destructor-free RAII via std::vector (no memory leaks)
@@ -179,17 +176,16 @@ Round PlacementManager::askRound() const
 }
 
 // ============================================================
-//  PRIVATE — Binary-search sorted insert O(log N + shift)
-//  Much better than original O(N) linked-list walk
+//  PRIVATE — AVL sorted insert O(log N)
 // ============================================================
 void PlacementManager::insertSorted(Round r, const StudentRecord &rec)
 {
-    // True O(log N) AVL insert — replaces the old O(N) vector::insert
+    // True O(log N) AVL insert
     rounds_[r].insert(rec);
 }
 
 // ============================================================
-//  PRIVATE — Generic CSV loader (replaces 5 near-identical functions)
+//  PRIVATE — Generic CSV loader 
 // ============================================================
 void PlacementManager::loadCSV(const string &path, const string &company, Round r)
 {
@@ -295,7 +291,7 @@ void PlacementManager::loadCSV(const string &path, const string &company, Round 
 }
 
 // ============================================================
-//  PRIVATE — Median (takes by value — BUG FIX vs original)
+//  PRIVATE — Median
 // ============================================================
 float PlacementManager::computeMedian(vector<float> nums) const
 {
