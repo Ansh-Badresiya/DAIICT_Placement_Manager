@@ -96,7 +96,7 @@ Placement_Manager_Optimized/
                       │ uses
                       ▼
 ┌──────────────────────────────────────────────────────┐
-│                 PlacementManager                      │
+│                 PlacementManager                     │
 │                                                      │
 │  Storage:                                            │
 │    rounds_[5]   → AVLTree<StudentRecord> per round   │
@@ -113,11 +113,11 @@ Placement_Manager_Optimized/
 └──────────────┬─────────────────────┬─────────────────┘
                │                     │
                ▼                     ▼
-┌─────────────────────┐   ┌──────────────────────────┐
+┌─────────────────────┐   ┌───────────────────────────┐
 │  AVLTree<T>         │   │  StudentRecord / structs  │
 │  (array-indexed)    │   │  RoundStats, OverallStats │
-│  insert() O(log N)  │   │  Round enum              │
-│  toVector() O(N)    │   └──────────────────────────┘
+│  insert() O(log N)  │   │  Round enum               │
+│  toVector() O(N)    │   └───────────────────────────┘
 │  filter()   O(N)    │
 └─────────────────────┘
 ```
@@ -157,21 +157,14 @@ Placement_Manager_Optimized/
 - C++17 compatible compiler (g++, MSVC, clang)
 - CSV data files in `data/` directory
 
-### Compile
+### Compile & Run
 
 ```bash
-# Using g++ (Linux/macOS/Windows with MinGW)
-g++ -std=c++17 -O2 -o main main.cpp src/PlacementManager.cpp
+# Compile
+g++ -std=c++17 -O2 -I include -o main.exe main.cpp src/PlacementManager.cpp
 
-# Using MSVC (Windows)
-cl /std:c++17 /O2 main.cpp src\PlacementManager.cpp /Fe:main.exe
-```
-
-### Run
-
-```bash
-./main        # Linux/macOS
-main.exe      # Windows
+# Run
+./main.exe          # Windows (PowerShell), Linux, and macOS
 ```
 
 ### Loading Data (Example)
